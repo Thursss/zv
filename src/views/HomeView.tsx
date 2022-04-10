@@ -1,6 +1,8 @@
 import { defineComponent, ref } from 'vue'
 import { createUseStyles } from 'vue-jss'
 import { Loading, Container } from 'zv-lib'
+import ScreenHeader from '@/components/header'
+import TotalUser from '@/components/totalUser'
 
 export const useStyles = createUseStyles({
   'screen-container': {
@@ -30,7 +32,7 @@ export const useStyles = createUseStyles({
         '& .left1': {
           height: '300px',
           paddingBottom: '20px',
-          background: '#ccc',
+          // background: '#ccc',
         },
         '& .left2': {
           height: '320px',
@@ -89,7 +91,7 @@ export const useStyles = createUseStyles({
     left: '50%',
     transform: 'translate(-50%, -50%)',
     '& .text': {
-      fontSize: '16px',
+      fontSize: '36px',
       color: '#fff',
     },
   },
@@ -102,7 +104,7 @@ export default defineComponent({
 
     setTimeout(() => {
       isLoading.value = false
-    }, 1000)
+    }, 100)
 
     return () => {
       const styleClass = classesRef.value
@@ -110,15 +112,19 @@ export default defineComponent({
       return (
         <div class={styleClass['screen-container']}>
           {isLoading.value ? (
-            <Loading class={styleClass.loading} width={75} speed={1.4}>
+            <Loading class={styleClass.loading} width={150} speed={1.4}>
               加载中...
             </Loading>
           ) : (
             <Container width={3840} height={2160}>
-              <div class="header">数据大屏</div>
+              <div class="header">
+                <ScreenHeader />
+              </div>
               <div class="main">
                 <div class="content left">
-                  <div class="left1"></div>
+                  <div class="left1">
+                    <TotalUser />
+                  </div>
                   <div class="left2"></div>
                   <div class="left3"></div>
                   <div class="left4"></div>

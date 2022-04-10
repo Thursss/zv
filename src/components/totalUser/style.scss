@@ -1,0 +1,37 @@
+.total-user {
+  width: 100%;
+  height: 100%;
+  background: rgb(66, 68, 70);
+  box-shadow: rgba(0, 0, 0, 0.3) 0px 10px 10px;
+  padding: 20px 40px;
+  box-sizing: border-box;
+  color: #fff;
+  .title {
+    font-size: 32px;
+  }
+  .sub-title {
+    font-size: 16px;
+    letter-spacing: 1px;
+    margin-top: 10px;
+  }
+  .total {
+    font-family: DIN;
+    font-size: 68px;
+    font-weight: bolder;
+    letter-spacing: 2px;
+    padding: 10px 0px;
+    line-height: 110px;
+  }
+  .percent-text {
+    .percent-text-1 {
+      color: rgb(197, 251, 121);
+    }
+    .percent-text-2 {
+      color: rgb(99, 169, 0);
+      margin-left: 10px;
+    }
+  }
+  .progress {
+    margin-top: 20px;
+  }
+}

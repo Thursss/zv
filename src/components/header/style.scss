@@ -1,0 +1,52 @@
+.screen-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 64px;
+  .logo-box {
+    display: flex;
+    align-items: center;
+    justify-content: start;
+    .logo {
+      width: 150px;
+      height: 150px;
+      .logo-path {
+        fill: none;
+        stroke-width: 18;
+        animation: logo-ani 3s ease-in forwards infinite;
+        &.logo-path1 {
+          stroke: #1296db;
+        }
+        &.logo-path2 {
+          stroke: #1afa29;
+        }
+      }
+    }
+    .text {
+      margin-left: 60px;
+      color: #fff;
+      .title-cn {
+        font-size: 60px;
+        font-weight: bold;
+      }
+      .title-en {
+        font-size: 34px;
+      }
+    }
+  }
+  .right {
+    color: #fff;
+    font-size: 52px;
+  }
+}
+
+@keyframes logo-ani {
+  0% {
+    stroke-dasharray: 6736;
+    stroke-dashoffset: 6736;
+  }
+  100% {
+    stroke-dasharray: 6736;
+    stroke-dashoffset: 0;
+  }
+}

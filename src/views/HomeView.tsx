@@ -3,6 +3,9 @@ import { createUseStyles } from 'vue-jss'
 import { Loading, Container } from 'zv-lib'
 import ScreenHeader from '@/components/header'
 import TotalUser from '@/components/totalUser'
+import AverageAge from '@/components/averageAge'
+import TotalDevice from '@/components/totalDevice'
+import TotalGender from '@/components/totalGender'
 
 export const useStyles = createUseStyles({
   'screen-container': {
@@ -32,32 +35,26 @@ export const useStyles = createUseStyles({
         '& .left1': {
           height: '300px',
           paddingBottom: '20px',
-          // background: '#ccc',
         },
         '& .left2': {
           height: '320px',
           paddingBottom: '20px',
-          background: '#ccc',
         },
         '& .left3': {
           height: '280px',
           paddingBottom: '20px',
-          background: '#ccc',
         },
         '& .left4': {
           height: '230px',
           paddingBottom: '20px',
-          background: '#ccc',
         },
         '& .left5': {
           height: '360px',
           paddingBottom: '20px',
-          background: '#ccc',
         },
         '& .left6': {
           height: '360px',
           paddingBottom: '20px',
-          background: '#ccc',
         },
       },
       '& .right': {
@@ -125,9 +122,15 @@ export default defineComponent({
                   <div class="left1">
                     <TotalUser />
                   </div>
-                  <div class="left2"></div>
-                  <div class="left3"></div>
-                  <div class="left4"></div>
+                  <div class="left2">
+                    <AverageAge />
+                  </div>
+                  <div class="left3">
+                    <TotalDevice />
+                  </div>
+                  <div class="left4">
+                    <TotalGender />
+                  </div>
                   <div class="left5"></div>
                   <div class="left6"></div>
                 </div>

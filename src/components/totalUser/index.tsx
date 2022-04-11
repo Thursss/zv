@@ -27,7 +27,7 @@ export default defineComponent({
             </span>
           </div>
           <div class="progress">
-            <Progress percent={percentData[0].value} strokeWidth={8} />
+            <Progress percent={85} strokeWidth={8} />
           </div>
         </div>
       )

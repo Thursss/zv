@@ -16,13 +16,17 @@ const randomData = (
 ) => {
   let timeHandler: number
   const randomData: Ref<number>[] = []
+  const sum = ref(0)
+
   const creatData = () => {
+    sum.value = 0
     for (let i = 0; i < quantity; i++) {
       const random = parseFloat(
         (minVal + Math.random() * (maxVal - minVal)).toFixed(decimals)
       )
       if (randomData[i]) randomData[i].value = random
       randomData[i] = ref(random)
+      sum.value += random
     }
   }
 
@@ -36,7 +40,7 @@ const randomData = (
   onUnmounted(() => {
     clearTimeout(timeHandler)
   })
-  return randomData
+  return { data: randomData, sum }
 }
 
 export default randomData

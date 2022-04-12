@@ -32,9 +32,9 @@ export default defineComponent({
               </div>
             </div>
             <div class="device-data-wrapper">
-              {deviceItem(device[0]?.value, 'Android')}
-              {deviceItem(device[1]?.value, 'ios')}
-              {deviceItem(device[2]?.value, 'pc')}
+              {deviceItem(device.data[0]?.value, 'Android')}
+              {deviceItem(device.data[1]?.value, 'ios')}
+              {deviceItem(device.data[2]?.value, 'pc')}
             </div>
           </div>
         </div>

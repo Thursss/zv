@@ -17,13 +17,13 @@ export default defineComponent({
         <div class="total-user">
           <div class="title">xxxxxx用户总数</div>
           <div class="sub-title">User Total Count</div>
-          <div class="total">{totalData[0]?.value}</div>
+          <div class="total">{totalData.data[0]?.value}</div>
           <div class="percent-text">
             <span class="percent-text-1">
-              每日增长率: <span>{growthRateData[0]?.value}</span>%
+              每日增长率: <span>{growthRateData.data[0]?.value}</span>%
             </span>
             <span class="percent-text-2">
-              每月增长率: <span>{growthRateData[1]?.value}</span>%
+              每月增长率: <span>{growthRateData.data[1]?.value}</span>%
             </span>
           </div>
           <div class="progress">

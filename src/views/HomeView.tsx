@@ -1,11 +1,14 @@
 import { defineComponent, ref } from 'vue'
 import { createUseStyles } from 'vue-jss'
-import { Loading, Container } from 'zv-lib'
+import { Loading, Container, Icon, FlyBox } from 'zv-lib'
 import ScreenHeader from '@/components/header'
 import TotalUser from '@/components/totalUser'
 import AverageAge from '@/components/averageAge'
 import TotalDevice from '@/components/totalDevice'
 import TotalGender from '@/components/totalGender'
+import Overview from '@/components/overview'
+import BestSellingCategory from '@/components/bestSellingCategory'
+import '@/styles/HomeView.scss'
 
 export const useStyles = createUseStyles({
   'screen-container': {
@@ -96,7 +99,6 @@ export const useStyles = createUseStyles({
 
 export default defineComponent({
   setup() {
-    const classesRef = useStyles()
     const isLoading = ref(true)
 
     setTimeout(() => {
@@ -104,12 +106,10 @@ export default defineComponent({
     }, 100)
 
     return () => {
-      const styleClass = classesRef.value
-
       return (
-        <div class={styleClass['screen-container']}>
+        <div class="screen-container">
           {isLoading.value ? (
-            <Loading class={styleClass.loading} width={150} speed={1.4}>
+            <Loading class="loading" width={150} speed={1.4}>
               加载中...
             </Loading>
           ) : (
@@ -131,13 +131,96 @@ export default defineComponent({
                   <div class="left4">
                     <TotalGender />
                   </div>
-                  <div class="left5"></div>
-                  <div class="left6"></div>
+                  <div class="left5">
+                    <Overview />
+                  </div>
+                  <div class="left6">
+                    <BestSellingCategory />
+                  </div>
                 </div>
                 <div class="content right">
-                  <div class="right-top"></div>
+                  <div class="right-top">
+                    <div class="item-ground">
+                      {[
+                        {
+                          icon: 'shangsanjiaoxing',
+                          title: '今日销售额',
+                          'en-title': "Today's Sales Amount",
+                          value: 99999,
+                        },
+                        {
+                          icon: 'shangsanjiaoxing',
+                          title: '今日销售额',
+                          'en-title': "Today's Sales Amount",
+                          value: 99999,
+                        },
+                        {
+                          icon: 'shangsanjiaoxing',
+                          title: '今日销售额',
+                          'en-title': "Today's Sales Amount",
+                          value: 99999,
+                        },
+                        {
+                          icon: 'shangsanjiaoxing',
+                          title: '今日销售额',
+                          'en-title': "Today's Sales Amount",
+                          value: 99999,
+                        },
+                      ].map((item) => (
+                        <div class="item">
+                          <div class="icon">
+                            <Icon icon={item.icon} />
+                          </div>
+                          <div class="text-ground">
+                            <div class="title">{item.title}</div>
+                            <div class="en-title">{item['en-title']}</div>
+                            <div class="value">{item.value}</div>
+                          </div>
+                        </div>
+                      ))}
+                    </div>
+                    <div class="project-ground">
+                      {[
+                        {
+                          icon: 'shangsanjiaoxing',
+                          text: '转化率',
+                          value: '10.14%',
+                        },
+                        {
+                          icon: 'shangsanjiaoxing',
+                          text: '转化率',
+                          value: '10.14%',
+                        },
+                      ].map((item) => (
+                        <div class="project">
+                          <div class="icon">
+                            <Icon icon={item.icon} />
+                          </div>
+                          <div class="text">{item.text}</div>
+                          <div class="value">{item.value}</div>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
                   <div class="right-center"></div>
-                  <div class="right-bottom"></div>
+                  <div class="right-bottom">
+                    <div class="right-bottom-left">
+                      <div class="right-bottom-left1"></div>
+                      <div class="right-bottom-left2"></div>
+                      <div class="right-bottom-left3">
+                        <FlyBox
+                          height="350"
+                          lineLength={100}
+                          lineColor={'#ef2'}
+                        />
+                      </div>
+                      <div class="right-bottom-left4"></div>
+                    </div>
+                    <div class="right-bottom-right">
+                      <div class="right-bottom-right1"></div>
+                      <div class="right-bottom-right2"></div>
+                    </div>
+                  </div>
                 </div>
               </div>
               <div class="footer"></div>

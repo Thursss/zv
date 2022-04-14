@@ -1,6 +1,6 @@
 import { defineComponent } from 'vue'
 import { EChartsOption } from 'echarts'
-import { Echarts as ZvEchart, utils } from 'zv-lib'
+import { Echarts as ZvEchart } from 'zv-lib'
 import randomData from '@/utils/random-data'
 import './style.scss'
 
@@ -9,6 +9,14 @@ export default defineComponent({
     const average = randomData(4, { minVal: 30000, maxVal: 100000 })
     return () => {
       const option: EChartsOption = {
+        tooltip: {
+          show: true,
+          backgroundColor: '#00000040',
+          borderWidth: 0,
+          textStyle: {
+            color: '#fff',
+          },
+        },
         xAxis: {
           type: 'value',
           axisLine: {

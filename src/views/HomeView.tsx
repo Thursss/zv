@@ -1,6 +1,6 @@
 import { defineComponent, ref } from 'vue'
 import { createUseStyles } from 'vue-jss'
-import { Loading, Container, Icon, FlyBox } from 'zv-lib'
+import { Loading, Container, Icon, FlyBox, FocusCarousel } from 'zv-lib'
 import ScreenHeader from '@/components/header'
 import TotalUser from '@/components/totalUser'
 import AverageAge from '@/components/averageAge'
@@ -8,6 +8,7 @@ import TotalDevice from '@/components/totalDevice'
 import TotalGender from '@/components/totalGender'
 import Overview from '@/components/overview'
 import BestSellingCategory from '@/components/bestSellingCategory'
+import PlanList from '@/components/planList'
 import '@/styles/HomeView.scss'
 
 export const useStyles = createUseStyles({
@@ -202,14 +203,38 @@ export default defineComponent({
                       ))}
                     </div>
                   </div>
-                  <div class="right-center"></div>
+                  <div class="right-center">
+                    <FocusCarousel
+                      class="country-category"
+                      focusClassName="active"
+                      delay={2000}
+                    >
+                      <div class="country">ALL</div>
+                      <div class="country">湖南</div>
+                      <div class="country">深圳</div>
+                      <div class="country">广东</div>
+                      <div class="country">四川</div>
+                      <div class="country">上海</div>
+                    </FocusCarousel>
+                  </div>
                   <div class="right-bottom">
                     <div class="right-bottom-left">
                       <div class="right-bottom-left1"></div>
-                      <div class="right-bottom-left2"></div>
+                      <div class="right-bottom-left2">
+                        <FocusCarousel
+                          class="tolal-category"
+                          focusClassName="active"
+                          delay={1500}
+                        >
+                          <div class="tolal">1</div>
+                          <div class="tolal">2</div>
+                          <div class="tolal">3</div>
+                          <div class="tolal">4</div>
+                        </FocusCarousel>
+                      </div>
                       <div class="right-bottom-left3">
                         <FlyBox
-                          height="350"
+                          height="100%"
                           lineLength={100}
                           lineColor={'#ef2'}
                         />
@@ -217,7 +242,9 @@ export default defineComponent({
                       <div class="right-bottom-left4"></div>
                     </div>
                     <div class="right-bottom-right">
-                      <div class="right-bottom-right1"></div>
+                      <div class="right-bottom-right1">
+                        <PlanList />
+                      </div>
                       <div class="right-bottom-right2"></div>
                     </div>
                   </div>

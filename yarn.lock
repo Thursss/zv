@@ -8355,9 +8355,10 @@ zrender@5.3.1:
   dependencies:
     tslib "2.3.0"
 
-zv-lib@^0.1.2:
-  version "0.1.2"
-  resolved "https://registry.yarnpkg.com/zv-lib/-/zv-lib-0.1.2.tgz#5671d3a20af452e4084a6a64673e5972431794db"
-  integrity sha512-3rBjhpvb5yQ0Twd4ePiaHsFTmQWmmqry/MulEdCSuo99EI5nIRTnxPDCYOee0wToc+czEyH+zt9qJkMAmKkUGA==
+zv-lib@0.2.0:
+  version "0.2.0"
+  resolved "https://registry.yarnpkg.com/zv-lib/-/zv-lib-0.2.0.tgz#8db4e505626402dcd577bed64bf58c326534a6b7"
+  integrity sha512-vtyDMtwIV/X+fKkwodfd1SJf5am0Vu/63QVi6c+F7jhktTQp0uFtMsZtqop5BHa3QpuXW87os9FDUD0MUahXnw==
   dependencies:
+    lodash "^4.17.21"
     uuid "^8.3.2"

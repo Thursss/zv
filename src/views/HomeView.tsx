@@ -9,6 +9,7 @@ import TotalGender from '@/components/totalGender'
 import Overview from '@/components/overview'
 import BestSellingCategory from '@/components/bestSellingCategory'
 import PlanList from '@/components/planList'
+import DataMarket from '@/components/dataMarket'
 import '@/styles/HomeView.scss'
 
 export const useStyles = createUseStyles({
@@ -219,7 +220,9 @@ export default defineComponent({
                   </div>
                   <div class="right-bottom">
                     <div class="right-bottom-left">
-                      <div class="right-bottom-left1"></div>
+                      <div class="right-bottom-left1">
+                        <DataMarket />
+                      </div>
                       <div class="right-bottom-left2">
                         <FocusCarousel
                           class="tolal-category"

@@ -1,6 +1,5 @@
 import { createRouter, createWebHistory, RouteRecordRaw } from 'vue-router'
 import HomeView from '../views/HomeView'
-import TimeLine from '@/views/_test/echarts-timeline'
 
 const routes: Array<RouteRecordRaw> = [
   {
@@ -9,14 +8,29 @@ const routes: Array<RouteRecordRaw> = [
     component: HomeView,
   },
   {
+    path: '/test',
+    name: 'Test',
+    component: import('@/views/_test/index'),
+  },
+  {
     path: '/test/timeline',
     name: 'TimeLine',
-    component: TimeLine,
+    component: import('@/views/_test/echarts-timeline'),
   },
   {
     path: '/test/map',
     name: 'EchartMap',
     component: import('@/views/_test/echarts-map'),
+  },
+  {
+    path: '/test/gl',
+    name: 'EchartMap',
+    component: import('@/views/_test/echarts-gl'),
+  },
+  {
+    path: '/test/fight-earch',
+    name: 'EchartMap',
+    component: import('@/views/_test/echarts-fightEarth'),
   },
 ]
 

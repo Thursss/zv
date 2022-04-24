@@ -23,9 +23,22 @@ export default defineComponent({
           type: 'value',
           max: 15000,
         },
+        tooltip: {
+          trigger: 'axis',
+          axisPointer: {
+            type: 'shadow',
+            label: {
+              show: true,
+            },
+          },
+        },
         series: [
           {
             type: 'bar',
+            data: [
+              2.6, 5.9, 9.0, 26.4, 28.7, 70.7, 175.6, 182.2, 48.7, 18.8, 6.0,
+              2.3,
+            ],
           },
           {
             type: 'pie',
@@ -82,6 +95,46 @@ export default defineComponent({
       ],
     }) as Ref<EChartsOption>
 
+    option.value = {
+      tooltip: {
+        trigger: 'axis',
+        axisPointer: {
+          type: 'shadow',
+          label: {
+            show: true,
+            position: 'top',
+          },
+        },
+      },
+      xAxis: {
+        type: 'category',
+        data: [
+          '2016-1',
+          '2016-2',
+          '2016-3',
+          '2016-4',
+          '2016-5',
+          '2016-6',
+          '2016-7',
+          '2016-8',
+          '2016-9',
+          '2016-10',
+          '2016-11',
+          '2016-12',
+        ],
+      },
+      yAxis: {
+        type: 'value',
+      },
+      series: [
+        {
+          type: 'bar',
+          data: [
+            2.6, 5.9, 9.0, 26.4, 28.7, 70.7, 175.6, 182.2, 48.7, 18.8, 6.0, 2.3,
+          ],
+        },
+      ],
+    }
     return () => {
       return (
         <div

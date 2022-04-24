@@ -10,6 +10,7 @@ import Overview from '@/components/overview'
 import BestSellingCategory from '@/components/bestSellingCategory'
 import PlanList from '@/components/planList'
 import DataMarket from '@/components/dataMarket'
+import ScheduleView from '@/components/scheduleView'
 import '@/styles/HomeView.scss'
 
 export const useStyles = createUseStyles({
@@ -242,7 +243,9 @@ export default defineComponent({
                           lineColor={'#ef2'}
                         />
                       </div>
-                      <div class="right-bottom-left4"></div>
+                      <div class="right-bottom-left4">
+                        <ScheduleView />
+                      </div>
                     </div>
                     <div class="right-bottom-right">
                       <div class="right-bottom-right1">

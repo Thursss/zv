@@ -1,6 +1,6 @@
 import { defineComponent, Ref, ref } from 'vue'
 import { EChartsOption, registerMap } from 'echarts'
-import { Echarts } from 'zv-lib'
+import { Echarts, Loading } from 'zv-lib'
 import './style.scss'
 
 const fc = (count: number) => {
@@ -15,6 +15,7 @@ const fc = (count: number) => {
 
 export default defineComponent({
   setup() {
+    const loading = ref(true)
     const option = ref<EChartsOption>({}) as Ref<EChartsOption>
     const year = [
       '江苏',
@@ -53,6 +54,7 @@ export default defineComponent({
       .then((res) => res.json())
       .then((data) => {
         registerMap('china', data)
+        loading.value = false
         const cityValus = (data.features as any[]).map((city) => ({
           name: city.properties.name,
           value: parseFloat((Math.random() * 1500 + 500).toFixed(2)),
@@ -258,7 +260,11 @@ export default defineComponent({
     return () => {
       return (
         <div class="market-container">
-          <Echarts options={option.value} />
+          {loading.value ? (
+            <Loading class="loading" width={100} />
+          ) : (
+            <Echarts options={option.value} />
+          )}
         </div>
       )
     }

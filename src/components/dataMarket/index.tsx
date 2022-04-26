@@ -3,16 +3,6 @@ import { EChartsOption, registerMap } from 'echarts'
 import { Echarts, Loading } from 'zv-lib'
 import './style.scss'
 
-const fc = (count: number) => {
-  const str = count.toString()
-  const [p, f] = str.split('.')
-  let fcCound = count
-  if (!f) {
-    fcCound = parseFloat(p) / Math.pow(10, p.length - 1)
-  }
-  return fcCound
-}
-
 export default defineComponent({
   setup() {
     const loading = ref(true)
@@ -50,11 +40,13 @@ export default defineComponent({
       '上海',
     ]
 
-    fetch('http://www.youbaobao.xyz/datav-res/datav/map.json')
+    fetch('http://localhost:8080/assets/china.json')
       .then((res) => res.json())
       .then((data) => {
         registerMap('china', data)
         loading.value = false
+        console.log(data)
+
         const cityValus = (data.features as any[]).map((city) => ({
           name: city.properties.name,
           value: parseFloat((Math.random() * 1500 + 500).toFixed(2)),
@@ -89,7 +81,6 @@ export default defineComponent({
               data: year,
               axisTick: { show: false, alignWithLabel: true },
             },
-
             timeline: {
               data: year,
               axisType: 'category',
@@ -178,14 +169,14 @@ export default defineComponent({
                 show: false,
               },
             },
-            series: [
-              {
-                type: 'map',
-                map: 'china',
-                roam: true,
-                data: cityValus,
-              },
-            ],
+            // series: [
+            //   {
+            //     type: 'map',
+            //     map: 'china',
+            //     roam: true,
+            //     data: cityValus,
+            //   },
+            // ],
           },
           options: year.map((city) => {
             const color = ['red', '#de1', '#fae'][Math.round(Math.random() * 4)]
@@ -217,7 +208,7 @@ export default defineComponent({
                   type: 'effectScatter',
                   coordinateSystem: 'geo',
                   data: [...center],
-                  symbolSize: (val, params: any) => {
+                  symbolSize: (val: any, params: any) => {
                     return params.data.data / 100
                   },
                   itemStyle: {

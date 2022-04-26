@@ -11,6 +11,7 @@ import BestSellingCategory from '@/components/bestSellingCategory'
 import PlanList from '@/components/planList'
 import DataMarket from '@/components/dataMarket'
 import ScheduleView from '@/components/scheduleView'
+import Model from '@/components/model'
 import '@/styles/HomeView.scss'
 
 export const useStyles = createUseStyles({
@@ -111,6 +112,7 @@ export default defineComponent({
     return () => {
       return (
         <div class="screen-container">
+          <Model show />
           {isLoading.value ? (
             <Loading class="loading" width={150} speed={1.4}>
               加载中...

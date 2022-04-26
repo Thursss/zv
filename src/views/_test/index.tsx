@@ -7,7 +7,7 @@ export default defineComponent({
     return () => {
       return (
         <div style={{ width: '99%', height: '99%', border: 'solid 1px #ccc' }}>
-          <ScheduleView />
+          <DataMarket />
         </div>
       )
     }
